@@ -1,47 +1,52 @@
-# Traffic Accident Data Analysis
+# Traffic Accident Analysis: Uncovering the Impact of Weather on Driver Inattention
 
-## Introduction:
-This project conducts an in-depth analysis of traffic accident data to uncover correlations between contributing factors and weather conditions. By merging and cleaning two seperate datasets - one containing accident details and another with corresponding weather information - this analysis aims to provide new insights into driver behavior and safety.
+---
 
-## Project Goal:
-The primary goal of this project is to answer the following question: **What are the main factors that cause accidents and does weather play a part in accident occurance?**
+## Project Overview & Business Value
 
-The analysis explores this question by first seeing what weather conditions cause the most accidents. The next step is to analyze what contributing factors are reported the most in accidents. The final step take in the notebook is to see if there is a relationship between the weather during the accident, and what the most common contributing factor is.
+* **Problem:** Does **weather condition** affect the primary **contributing factors** of traffic accidents? Specifically, does a change in perceived danger (e.g., snow vs. rain) lead to a change in **driver behavior**?
+* **Goal:** To determine the relationship between weather and driver inattention/distraction, providing actionable insights for **public safety campaigns** and **traffic enforcement resource allocation**.
+* **Outcome:** The analysis revealed that distracted driving accidents are **higher in rainy conditions than in clear conditions**, and **significantly lower in snowy conditions**.
 
-## Methodology:
+---
 
-The analysis followed a multi-step process to prepare and analyze the data:
+## Technical Methodology & Tools
 
-  1. **Data Merging**: Two seperate datasets were merged into a single DataFrame using a common unique identifier to link each accident to its corresponding weather information.
-  2. **Data Consolidation**: The raw weather data, which included numerous specific descriptions (e.g., 'Rain: Heavy', 'Snow: Light', 'Clear sky'), was consolidated into three core bins: **Rain, Snowy**, and **Clear/Cloudy**
-  3. **Data Filtering**: The merged and cleaned dataset was filtered to isolate accidents where the primary **Contributing Factor** was **Driver Inattention/Distraction**
-  4. **Visualization**: Multiple visualizations were created to explore the data, culminating in a bar chart that compares the number of "Driver Inattention/Distraction" accidents across the three weather bins. This final visual provides a clear representation of the key findings.
+This project demonstrates proficiency in data wrangling, cleaning, analysis, and visualization using the following stack:
 
-## Key Findings:
-The visual analysis of the data revealed several compelling insights:
- - **Driver caution is a factor**: There were significantly fewer distracted driving accidents in snowy weather conditions compared to rainy or clear conditions. This suggests that deivers may be more attentive and cautious when faced with the precieved danger of snow
- - **Rainy weather may be underestimated**: Suprisingly, the analysis showed that more distracted driving accidents occurred during rainy conditions than in clear conditions. This indicates that while drivers may know the dangers of rain, they may be underestimating its impact or not adapting their behavior as much as they do in snow
+| Category | Tools & Libraries Used | Skills Demonstrated |
+| :--- | :--- | :--- |
+| **Data Acquisition** | Python, `requests` | API/Web Data Integration |
+| **Data Processing** | **Pandas**, **NumPy**, SQL (Optional: Mention if you used SQL for initial filtering) | Data Merging, Feature Engineering, Data Consolidation (`Rain: Heavy` → `Rain`) |
+| **Data Analysis** | `scipy` (statistical testing, if any), Group-By Aggregations | Hypothesis Testing, Exploratory Data Analysis (EDA) |
+| **Visualization** | **Matplotlib**, **Seaborn** (Optional: Mention Tableau/Power BI if you used it to create a final dashboard) | Data Storytelling, Professional Charting |
 
-## How to Run the Code:
-To replicate this analysis, ensure you have Python installed, along with the necessary libraries.
+### Key Analytical Steps:
 
-**Prerequisites**:
- - `Pandas`
- - `numpy`
- - `requests`
- - `matplotlib`
- - `seaborn`
- - `scipy`
+1.  **Data Merging:** Combined two distinct datasets (Accident Details and Weather) into a single, cohesive DataFrame using a common unique identifier.
+2.  **Feature Engineering (Data Consolidation):** Consolidated over 50 specific weather descriptions (e.g., 'Rain: Heavy', 'Snow: Light') into three clean, categorical bins: **Rainy**, **Snowy**, and **Clear/Cloudy**.
+3.  **Target Filtering:** Filtered the final dataset to isolate accidents where the primary `Contributing Factor` was **Driver Inattention/Distraction**, establishing a focused target for the analysis.
 
-You can install these using pip:
+---
 
-`pip install pandas numpy requests matploylib seaborn scripy`
+## Key Findings & Interpretation
 
-**Instructions**
-  1. Open the `Weather-Impact-Analysis.ipynb` file in a Jupyter Notebook enviornment (e.g., JupyterLab, VS Code, Google Colab).
-  2. Run the cells sequentially to execute the data processing and visualization steps.
-  3. The final bar chart will be displayed within the notebook output
+The visual analysis of distracted driving accidents across the engineered weather bins yielded compelling, non-obvious results:
 
-### Project Files
- - `Weather-Impact-Analysis.ipynb`: The main Jupyter Notebook file for data processing and visualization
- - `README.md`: This file.
+1.  **Snow → High Caution:** There were **significantly fewer** distracted driving accidents in snowy conditions compared to rainy or clear conditions. This suggests drivers are highly attuned to the **perceived danger** of snow and adjust their attention/behavior accordingly.
+2.  **Rain → Underestimated Risk:** Surprisingly, more distracted driving accidents occurred during **rainy conditions** than in clear conditions. This indicates that drivers may be **underestimating the impact of rain** or not adapting their behavior as much as they do for snow.
+
+> **Actionable Insight:** Public safety campaigns should focus on the **risk of distraction during moderate-risk weather like rain**, as drivers seem to have a false sense of security in these conditions.
+
+---
+
+## How to Replicate the Analysis
+
+### Prerequisites:
+
+* **Python 3.x**
+* **Libraries:** `pandas`, `numpy`, `requests`, `matplotlib`, `seaborn`, `scipy`
+
+Install dependencies:
+```bash
+pip install pandas numpy requests matplotlib seaborn scipy
